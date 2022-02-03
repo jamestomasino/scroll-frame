@@ -1,0 +1,23 @@
+{
+  "name": "@jamestomasino/scroll-frame",
+  "version": "1.0.0",
+  "description": "Better scroll events with requestAnimationFrame",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamestomasino/scroll-frame.git"
+  },
+  "keywords": [
+    "requestAnimationFrame",
+    "scroll"
+  ],
+  "author": "James Tomasino",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/jamestomasino/scroll-frame/issues"
+  },
+  "homepage": "https://github.com/jamestomasino/scroll-frame#readme"
+}
