@@ -4,28 +4,39 @@ function scrollFrame() {
   let lastY = -1
 
   function loop () {
-    if (process.browser) {
-      const y = window.pageYOffset
-      if (y === lastY || !callbacks.length) {
-        animationFrame = window.requestAnimationFrame(loop)
-        return
-      }
-      lastY = y
-      callbacks.forEach((callback) => {
-        callback()
-      })
+    // Only process loop if we are scrolling
+    const y = window.pageYOffset
+    if (y === lastY || !callbacks.length) {
       animationFrame = window.requestAnimationFrame(loop)
+      return
     }
+    lastY = y
+
+    // Avoid 'forEach' for browser support
+    for (let i = 0; i < callbacks.length; ++i) {
+      // Callbacks are external and could be problematic
+      try {
+        callbacks[i]()
+      } catch (err) {
+        throw new Error('ScrollFrame: callback error', { cause: err })
+      }
+    }
+    animationFrame = window.requestAnimationFrame(loop)
   }
 
   function addScrollListener(callback) {
-    if (!callbacks.includes(callback)) {
-      callbacks.push(callback)
+    // Only allow a single instance of a callback
+    if (callbacks.indexOf(callback) === -1) {
+      // Only allow functions as callbacks
+      if (typeof callback === 'function') {
+        callbacks.push(callback)
+      }
     }
   }
 
   function removeScrollListener(callback) {
-    if (callbacks.includes(callback)) {
+    // Avoid 'includes' for browser support
+    if (callbacks.indexOf(callback) !== -1) {
       callbacks.splice(callbacks.indexOf(callback), 1);
     }
   }
