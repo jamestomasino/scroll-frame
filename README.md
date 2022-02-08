@@ -11,15 +11,31 @@ npm install @jamestomasino/scroll-frame
 ## Use
 
 ```js
-const { addScrollListener, removeScrollListener } = require('@jamestomasino/scroll-frame');
+/**
+ * Binds a callback function to the scroll listener
+ *
+ * @param {function} func The callback function to trigger on scroll
+ * @param {boolean} breakOnError If callback function throws an error, remove from scroll listener
+ */
+function addScrollListener(func, breakOnError = false)
 
+/**
+ * Remove a callback function from the scroll listener
+ *
+ * @param {function} func The callback function to remove from the scroll listener
+ */
+function removeScrollListener(func)
+```
+
+## Example
+```js
+const { addScrollListener, removeScrollListener } = require('@jamestomasino/scroll-frame');
 
 function onMove() {
   console.log('moving')
 }
 
-addScrollListener(onMove) // onMove will be called upon scroll
-
+addScrollListener(onMove) // onMove will be called upon scroll.
 removeScrollListener(onMove) // onMove will no longer be called upon scroll
 ```
 
@@ -29,13 +45,11 @@ removeScrollListener(onMove) // onMove will no longer be called upon scroll
 
 ## Required support
 
-- [window global object](https://caniuse.com/mdn-api_window)
-- [requestAnimationFrame](https://caniuse.com/requestanimationframe)
-- [pageYOffset](https://caniuse.com/mdn-api_window_pageyoffset)
-- [Array.indexOf](https://caniuse.com/mdn-javascript_builtins_array_indexof)
-- [Array.reduce](https://caniuse.com/mdn-javascript_builtins_array_reduce)
-- [Error API](https://caniuse.com/mdn-api_errorevent)
-
+- [requestAnimationFrame](https://caniuse.com/requestanimationframe) - ~IE10+
+- [pageYOffset](https://caniuse.com/mdn-api_window_pageyoffset) - ~IE9+
+- [Array.indexOf](https://caniuse.com/mdn-javascript_builtins_array_indexof) - ~IE9+
+- [Array.reduce](https://caniuse.com/mdn-javascript_builtins_array_reduce) - ~IE9+
+- [Error API](https://caniuse.com/mdn-api_errorevent) - ~IE10+
 
 ## License
 
