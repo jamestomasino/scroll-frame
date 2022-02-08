@@ -33,6 +33,7 @@ removeScrollListener(onMove) // onMove will no longer be called upon scroll
 - [requestAnimationFrame](https://caniuse.com/requestanimationframe)
 - [pageYOffset](https://caniuse.com/mdn-api_window_pageyoffset)
 - [Array.indexOf](https://caniuse.com/mdn-javascript_builtins_array_indexof)
+- [Array.reduce](https://caniuse.com/mdn-javascript_builtins_array_reduce)
 - [Error API](https://caniuse.com/mdn-api_errorevent)
 
 
