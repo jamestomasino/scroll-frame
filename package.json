@@ -4,7 +4,7 @@
   "description": "Better scroll events with requestAnimationFrame",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/jamestomasino/scroll-frame/issues"
   },
-  "homepage": "https://github.com/jamestomasino/scroll-frame#readme"
+  "homepage": "https://github.com/jamestomasino/scroll-frame#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "jsdom"
+  }
 }
