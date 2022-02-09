@@ -55,7 +55,7 @@ function scrollFrame() {
    * @return {boolean} true if found, false if not found
    */
   function contains(func) {
-    return callbackCollection.length && callbackCollection.reduce((previousValue, callback) => {
+    return callbackCollection.length && callbackCollection.reduce((prev, callback) => {
       prev || func === callback.func
     }, false)
   }
