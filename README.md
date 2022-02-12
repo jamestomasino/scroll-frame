@@ -1,4 +1,4 @@
-# Scroll Frame
+# Scroll Frame [![Node.js Package](https://github.com/jamestomasino/scroll-frame/actions/workflows/npm-publish.yml/badge.svg?branch=main)](https://github.com/jamestomasino/scroll-frame/actions/workflows/npm-publish.yml)
 
 Better scroll event management using requestAnimationFrame.
 
