@@ -15,8 +15,9 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16
-      - run: npm install
-      - run: npm test
+        run: |
+          npm install
+          npm test
 
   publish-npm:
     needs: build
