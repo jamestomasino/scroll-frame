@@ -2,6 +2,10 @@
 
 Better scroll event management using requestAnimationFrame.
 
+## Overview
+
+`scroll-frame` sets up one master requestAnimationFrame loop which processes callbacks only when the browser window is scrolling. Any deviation in page `window.pageYOffset` will trigger the callbacks to fire. When the window stops scrolling the callbacks stop firing. Multiple callbacks can be added to this scroll listener behavior. Callbacks can also be removed from the listener.
+
 ## Install
 
 ```bash
@@ -38,18 +42,6 @@ function onMove() {
 addScrollListener(onMove) // onMove will be called upon scroll.
 removeScrollListener(onMove) // onMove will no longer be called upon scroll
 ```
-
-## Details
-
-`scroll-frame` sets up one master requestAnimationFrame loop which processes callbacks only while the browser window is scrolling. Any deviation in page `window.pageYOffset` will trigger the callbacks to fire. When the window stops scrolling the callbacks stop firing. Multiple callbacks can be added to this scroll listener behavior.
-
-## Required support
-
-- [requestAnimationFrame](https://caniuse.com/requestanimationframe) - ~IE10+
-- [pageYOffset](https://caniuse.com/mdn-api_window_pageyoffset) - ~IE9+
-- [Array.indexOf](https://caniuse.com/mdn-javascript_builtins_array_indexof) - ~IE9+
-- [Array.reduce](https://caniuse.com/mdn-javascript_builtins_array_reduce) - ~IE9+
-- [Error API](https://caniuse.com/mdn-api_errorevent) - ~IE10+
 
 ## License
 
