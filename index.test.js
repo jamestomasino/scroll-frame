@@ -1,27 +1,5 @@
 const { JSDOM } = require("jsdom");
-const dom = new JSDOM(`<!DOCTYPE html>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-<p>Hello world</p>
-`);
+const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
 
 const originalWindow = { ...window }
 const windowSpy = jest.spyOn(global, 'window', 'get')
