@@ -2,6 +2,7 @@ function scrollFrame() {
   let animationFrame = window.requestAnimationFrame(loop)
   let callbackCollection = []
   let lastY = -1
+  let lastX = -1
 
   /**
    * Object that holds a callback function and data about how to handle it
@@ -18,11 +19,18 @@ function scrollFrame() {
    * Determines if scroll has occurred and callbacks exist to initiate a trigger
    */
   function loop () {
+    // Only process checks if callback exists
+    if (callbackCollection.length) {
     // Only process loop if we are scrolling
-    const y = window.pageYOffset
-    if (!(y === lastY || !callbackCollection.length)) {
-      lastY = y
-      trigger()
+      const y = window.pageYOffset
+      const x = window.pageXOffset
+      switch (false) {
+        case (y === lastY):
+        case (x === lastX):
+          lastY = y
+          lastX = x
+          trigger()
+      }
     }
     animationFrame = window.requestAnimationFrame(loop)
   }
