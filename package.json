@@ -1,6 +1,6 @@
 {
   "name": "@jamestomasino/scroll-frame",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Better scroll events with requestAnimationFrame",
   "main": "index.js",
   "scripts": {
