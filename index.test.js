@@ -99,3 +99,36 @@ describe('When removeScrollListener removes a callback', () => {
     jest.clearAllMocks();
   })
 })
+
+describe('When a callback throws an error with breakOnError', () => {
+  const mockCallback = jest.fn().mockImplementation(() => {
+    throw new Error('Test Error')
+  })
+
+  beforeAll(() => {
+    addScrollListener(mockCallback, true)
+  })
+
+  it('it should not error on scroll', async () => {
+    windowSpy.mockImplementation(() => ({
+      ...originalWindow,
+      pageYOffset: 1234
+    }))
+    await waitRAF();
+    expect(mockCallback).toHaveBeenCalledTimes(1)
+  })
+
+  it('it should not be called a second time on scroll', async () => {
+    windowSpy.mockImplementation(() => ({
+      ...originalWindow,
+      pageYOffset: 500
+    }))
+    await waitRAF();
+    expect(mockCallback).toHaveBeenCalledTimes(1)
+  })
+
+  afterAll(() => {
+    removeScrollListener(mockCallback)
+    jest.clearAllMocks();
+  })
+})

@@ -48,9 +48,10 @@ function scrollFrame() {
         callback.func()
       } catch (err) {
         if (callback.breakOnError) {
-          remove(callback.func)
+          removeScrollListener(callback.func)
         } else {
-          throw new Error('ScrollFrame: callback error', { cause: err })
+          // pass through error otherwise
+          throw err
         }
       }
     }
