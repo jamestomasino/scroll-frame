@@ -4,7 +4,7 @@ Better scroll event management using requestAnimationFrame.
 
 ## Overview
 
-`scroll-frame` sets up one master requestAnimationFrame loop which processes callbacks only when the browser window is scrolling. Any deviation in page `window.pageYOffset` will trigger the callbacks to fire. When the window stops scrolling the callbacks stop firing. Multiple callbacks can be added to this scroll listener behavior. Callbacks can also be removed from the listener.
+`scroll-frame` sets up one master requestAnimationFrame loop which processes callbacks only when the browser window is scrolling. Any deviation in page `window.pageYOffset` or `window.pageXOffset` will trigger the callbacks to fire. When the window stops scrolling the callbacks stop firing. Multiple callbacks can be added to this scroll listener behavior. Callbacks can also be removed from the listener.
 
 ## Install
 
